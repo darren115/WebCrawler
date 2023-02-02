@@ -1,4 +1,8 @@
 const { crawlPage } = require("./crawl");
+const { printReport } = require("./report.js");
+
+//npm run start https://wagslane.dev
+//npm run test
 
 async function main() {
   if (process.argv.length < 3) {
@@ -19,9 +23,11 @@ async function main() {
   console.log("starting crawl");
   const pages = await crawlPage(baseURL, baseURL, {});
 
-  for (const page of Object.entries(pages)) {
-    console.log(page);
-  }
+  printReport(pages);
+
+  //   for (const page of Object.entries(pages)) {
+  //     console.log(page);
+  //   }
 }
 
 main();
